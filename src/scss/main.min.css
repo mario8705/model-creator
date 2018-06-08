@@ -33,6 +33,15 @@ body {
 .collapse-body {
   margin: .5em; }
 
+.form {
+  padding: .25em; }
+  .form > label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .form > label ~ label {
+    margin-top: .5em; }
+
 .hierarchy {
   background: #fff;
   height: 100px;
@@ -40,8 +49,9 @@ body {
   .hierarchy > li {
     display: flex;
     justify-content: space-between;
-    padding: 0 .25em;
-    margin: .25em 0; }
+    padding: .25em; }
+    .hierarchy > li.active {
+      background: #eee; }
   .hierarchy-controls {
     display: flex; }
     .hierarchy-controls li {
@@ -52,10 +62,24 @@ body {
 .vspacer > * ~ * {
   margin-top: 1em; }
 
-.tabs {
+.tabs > ul {
   display: flex; }
-  .tabs > li {
-    flex: 1; }
+  .tabs > ul > li {
+    flex: 1;
+    text-align: center;
+    border: 1px solid #aaa;
+    background: #fff;
+    padding: .25em;
+    cursor: pointer; }
+    .tabs > ul > li.active {
+      background: #eee; }
+  .tabs > ul > li ~ li {
+    margin-left: -1px; }
+
+.tabs-content {
+  background: #fff;
+  border: 1px solid #aaa;
+  margin-top: -1px; }
 
 .panel {
   position: relative;

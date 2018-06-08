@@ -23,6 +23,21 @@ class Panel extends Component {
         }));
     }
 
+    handlePullClick() {
+        this.setState(({ collapsed }) => {
+            if (!collapsed) {
+                return {
+                    collapsed: true,
+                    hidden: false,
+                };
+            } else {
+                return {
+                    collapsed: false,
+                };
+            }
+        });
+    }
+
     componentDidMount() {
         if (this.pullRef) {
             this.pullRef.addEventListener('transitionend', this.handleTransitionEnd);
@@ -48,7 +63,7 @@ class Panel extends Component {
                 <div
                     ref={pullRef => this.pullRef = pullRef}
                     className="panel-pull"
-                    onClick={() => this.setState(({ collapsed }) => ({ collapsed: !collapsed }))}>
+                    onClick={() => this.handlePullClick()}>
                     <i className={cx('fa', {
                         'fa-plus': collapsed,
                         'fa-minus': !collapsed,

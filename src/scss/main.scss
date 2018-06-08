@@ -45,6 +45,20 @@ body {
     }
 }
 
+.form {
+    padding: .25em;
+
+    > label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    > label ~ label {
+        margin-top: .5em;
+    }
+}
+
 .hierarchy {
     background: #fff;
     height: 100px;
@@ -53,8 +67,11 @@ body {
     > li {
         display: flex;
         justify-content: space-between;
-        padding: 0 .25em;
-        margin: .25em 0;
+        padding: .25em;
+
+        &.active {
+            background: #eee;
+        }
     }
 
     &-controls {
@@ -77,10 +94,31 @@ body {
 }
 
 .tabs {
-    display: flex;
+    > ul {
+        display: flex;
 
-    > li {
-        flex: 1;
+        > li {
+            flex: 1;
+            text-align: center;
+            border: 1px solid #aaa;
+            background: #fff;
+            padding: .25em;
+            cursor: pointer;
+
+            &.active {
+                background: #eee;
+            }
+        }
+
+        > li ~ li {
+            margin-left: -1px;
+        }
+    }
+
+    &-content {
+        background: #fff;
+        border: 1px solid #aaa;
+        margin-top: -1px;
     }
 }
 
