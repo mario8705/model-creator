@@ -23,11 +23,25 @@ body {
     overflow: hidden;
 }
 
+.content {
+    background: #960;
+    flex: 1;
+}
+
 .panel {
     position: relative;
-    min-width: 300px;
-    background: #069;
     transition: transform .4s ease-out;
+    display: flex;
+
+    &-body {
+        min-width: 300px;
+        background: #069;
+        overflow: hidden;
+        
+        &.hidden {
+            display: none;
+        }
+    }
     
     &-right {
         margin-left: auto;
@@ -37,10 +51,15 @@ body {
         }
 
         .panel-pull {
-            left: -3em;          
+            left: -3em;      
+            border-radius: 5px 0 0 5px;
             
             &:hover {
                 left: -4em;
+            }
+
+            i {
+                text-align: left;
             }
         }
     }
@@ -54,26 +73,31 @@ body {
 
         .panel-pull {
             right: -3em;
+            border-radius: 0px 5px 5px 0;
 
             &:hover {
                 right: -4em;
+            }
+
+            i {
+                text-align: right;
             }
         }
     }
 
     &-pull {
-        border-radius: 5px 0 0 5px;
-        display: flex;
         background: rgba(0, 0, 128, 0.3);
-        display: inline-block;
         position: absolute;
         padding: .5em;
         color: white;
         width: 3em;
         cursor: pointer;
         top: 2em;
-
         transition: all .4s ease-out;
+
+        i {
+            display: block;
+        }
 
         &:hover {
             width: 4em;

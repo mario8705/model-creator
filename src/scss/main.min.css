@@ -18,32 +18,44 @@ body {
   height: 100vh;
   overflow: hidden; }
 
+.content {
+  background: #960;
+  flex: 1; }
+
 .panel {
   position: relative;
-  min-width: 300px;
-  background: #069;
-  transition: transform .4s ease-out; }
+  transition: transform .4s ease-out;
+  display: flex; }
+  .panel-body {
+    min-width: 300px;
+    background: #069;
+    overflow: hidden; }
+    .panel-body.hidden {
+      display: none; }
   .panel-right {
     margin-left: auto; }
     .panel-right.collapsed {
       transform: translateX(100%); }
     .panel-right .panel-pull {
-      left: -3em; }
+      left: -3em;
+      border-radius: 5px 0 0 5px; }
       .panel-right .panel-pull:hover {
         left: -4em; }
+      .panel-right .panel-pull i {
+        text-align: left; }
   .panel-left {
     margin-right: auto; }
     .panel-left.collapsed {
       transform: translateX(-100%); }
     .panel-left .panel-pull {
-      right: -3em; }
+      right: -3em;
+      border-radius: 0px 5px 5px 0; }
       .panel-left .panel-pull:hover {
         right: -4em; }
+      .panel-left .panel-pull i {
+        text-align: right; }
   .panel-pull {
-    border-radius: 5px 0 0 5px;
-    display: flex;
     background: rgba(0, 0, 128, 0.3);
-    display: inline-block;
     position: absolute;
     padding: .5em;
     color: white;
@@ -51,5 +63,7 @@ body {
     cursor: pointer;
     top: 2em;
     transition: all .4s ease-out; }
+    .panel-pull i {
+      display: block; }
     .panel-pull:hover {
       width: 4em; }
