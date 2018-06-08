@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+body {
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.panel {
+    position: relative;
+    min-width: 300px;
+    background: #069;
+    transition: transform .4s ease-out;
+    
+    &-right {
+        margin-left: auto;
+    
+        &.collapsed {
+            transform: translateX(100%);
+        }
+
+        .panel-pull {
+            left: -3em;          
+            
+            &:hover {
+                left: -4em;
+            }
+        }
+    }
+
+    &-left {
+        margin-right: auto;
+
+        &.collapsed {
+            transform: translateX(-100%);
+        }
+
+        .panel-pull {
+            right: -3em;
+
+            &:hover {
+                right: -4em;
+            }
+        }
+    }
+
+    &-pull {
+        border-radius: 5px 0 0 5px;
+        display: flex;
+        background: rgba(0, 0, 128, 0.3);
+        display: inline-block;
+        position: absolute;
+        padding: .5em;
+        color: white;
+        width: 3em;
+        cursor: pointer;
+        top: 2em;
+
+        transition: all .4s ease-out;
+
+        &:hover {
+            width: 4em;
+        }
+    }
+}

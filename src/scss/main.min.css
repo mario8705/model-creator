@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+ul, ol {
+  list-style-type: none; }
+
+body {
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200; }
+
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden; }
+
+.panel {
+  position: relative;
+  min-width: 300px;
+  background: #069;
+  transition: transform .4s ease-out; }
+  .panel-right {
+    margin-left: auto; }
+    .panel-right.collapsed {
+      transform: translateX(100%); }
+    .panel-right .panel-pull {
+      left: -3em; }
+      .panel-right .panel-pull:hover {
+        left: -4em; }
+  .panel-left {
+    margin-right: auto; }
+    .panel-left.collapsed {
+      transform: translateX(-100%); }
+    .panel-left .panel-pull {
+      right: -3em; }
+      .panel-left .panel-pull:hover {
+        right: -4em; }
+  .panel-pull {
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    background: rgba(0, 0, 128, 0.3);
+    display: inline-block;
+    position: absolute;
+    padding: .5em;
+    color: white;
+    width: 3em;
+    cursor: pointer;
+    top: 2em;
+    transition: all .4s ease-out; }
+    .panel-pull:hover {
+      width: 4em; }
