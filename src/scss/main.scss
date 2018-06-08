@@ -28,6 +28,62 @@ body {
     flex: 1;
 }
 
+.collapse {
+    > header {
+        padding: .25em;
+        display: flex;
+        align-items: center;
+
+        i {
+            font-size: 1.5em;
+            transition: transform .1s ease-out;
+        }
+    }
+
+    &-body {
+        margin: .5em;
+    }
+}
+
+.hierarchy {
+    background: #fff;
+    height: 100px;
+    overflow: auto;
+
+    > li {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 .25em;
+        margin: .25em 0;
+    }
+
+    &-controls {
+        display: flex;
+
+        li {
+            cursor: pointer;
+        }
+
+        li ~ li {
+            margin-left: .25em;
+        }
+    }
+}
+
+.vspacer {
+    > * ~ * {
+        margin-top: 1em;
+    }
+}
+
+.tabs {
+    display: flex;
+
+    > li {
+        flex: 1;
+    }
+}
+
 .panel {
     position: relative;
     transition: transform .4s ease-out;

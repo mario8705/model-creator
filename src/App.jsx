@@ -1,50 +1,28 @@
 import React, { Component } from 'react';
-import cx from 'classnames';
+import Panel from './Panel';
+import Collapse from './Collapse';
 
-class Panel extends Component {
-    state = {
-        collapsed: false,
-        hidden: false,
-    }
-
-    handleTransitionEnd = () => {
-        this.setState(({ collapsed }) => ({
-            hidden: collapsed
-        }));
-    }
-
-    componentDidMount() {
-        if (this.pullRef) {
-            this.pullRef.addEventListener('transitionend', this.handleTransitionEnd);
-        }
-    }
-
-    componentWillUnmount() {
-        if (this.pullRef) {
-            this.pullRef.removeEventListener('transitionend', this.handleTransitionEnd);
-        }
-    }
-    
+class Tabs extends Component {
     render() {
-        const { className } = this.props;
-        const { collapsed } = this.state;
+        const tabs = ['Position', 'Rotation', 'Scale'];
 
         return (
-            <div className={cx(className, 'panel', { 'collapsed': collapsed })}>
-                <div
-                    ref={pullRef => this.pullRef = pullRef}
-                    className="panel-pull"
-                    onClick={() => this.setState(({ collapsed }) => ({ collapsed: !collapsed }))}>
-                    <i className={cx('fa', {
-                        'fa-plus': collapsed,
-                        'fa-minus': !collapsed,
-                    })} />
-                </div>
-                <div className={cx('panel-body', { 'hidden': this.state.hidden })}>
-
-                </div>
-            </div>
+            <ul className="tabs">
+                {
+                    tabs.map((tab, i) => (
+                        <li key={i}>
+                            {tab}
+                        </li>
+                    ))
+                }
+            </ul>
         );
+    }
+}
+
+class Tab extends Component {
+    render() {
+        return '';
     }
 }
 
@@ -52,11 +30,30 @@ class App extends Component {
     render() {
         return (
             <div className="container">
-                <Panel className="panel-left" />
+                <Panel dir="left">
+                    <Collapse title="Hierarchy">
+                        <ul className="hierarchy">
+                            {
+                                (Array(30)).fill('').map((_, n) => (
+                                    <li>
+                                        Cube #{n + 1}
+                                        <ul className="hierarchy-controls">
+                                            <li className="fa fa-eye" />
+                                            <li className="fa fa-cube" />
+                                        </ul>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </Collapse>
+                    <Collapse title="Transform">
+                        
+                    </Collapse>
+                </Panel>
                 <div className="content">
 
                 </div>
-                <Panel className="panel-right" />
+                <Panel dir="right" />
             </div>
         );
     }
